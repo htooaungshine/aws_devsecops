@@ -1,8 +1,11 @@
 version: 0.2
+env:
+    secrets-manager:
+      TOKEN: sonartoken:sonar_token
 phases:
   install:
     runtime-versions:
       java: latest
   build:
     commands:
-      - mvn verify sonar:sonar -Dsonar.projectKey=innovationtest -Dsonar.organization=innovationtest -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=5709df3cc0cc45350b97bc1cbebf472123e3b240
+      - mvn verify sonar:sonar -Dsonar.projectKey=innovationtest -Dsonar.organization=innovationtest -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN
